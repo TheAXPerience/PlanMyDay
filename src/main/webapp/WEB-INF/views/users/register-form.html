@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Plan My Day - Register User</title>
+  </head>
+  <body>
+    <h1 align="center">Register New User</h1>
+    <form th:action="@{${register_complete_link}}" th:object="${registrationDTO}" th:method="POST">
+      <div align="center">
+        <label>Email</label>
+        <input type="text" th:field="*{email}" />
+      </div>
+      <div align="center">
+        <label>User Name</label>
+        <input type="text" th:field="*{username}" />
+      </div>
+      <div align="center">
+        <label>Password</label>
+        <input type="text" th:field="*{password}" />
+      </div>
+      <div align="center">
+        <button type="submit" class="button">Submit</button>
+      </div>
+    </form>
+  </body>
+</html>

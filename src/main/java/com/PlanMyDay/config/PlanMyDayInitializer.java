@@ -1,4 +1,4 @@
-package com.config;
+package com.PlanMyDay.config;
 
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -9,13 +9,14 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRegistration;
 
 public class PlanMyDayInitializer implements WebApplicationInitializer {
-
+	
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		// System.out.println("Servlet settings");
 		
 		AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
 		context.register(PlanMyDayConfig.class);
+		context.register(PersistenceJPAConfig.class);
 		
 		ServletRegistration.Dynamic servlet = servletContext.addServlet("dispatcher", new DispatcherServlet(context));
 		

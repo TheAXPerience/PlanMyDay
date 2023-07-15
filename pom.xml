@@ -14,8 +14,8 @@
   <url>http://www.example.com</url>
 
   <properties>
+    <failOnMissingWebXml>false</failOnMissingWebXml>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <failOnMissingXml>false</failOnMissingXml>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
@@ -47,6 +47,39 @@
 	    <artifactId>thymeleaf-spring6</artifactId>
 	    <version>3.1.1.RELEASE</version>
 	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+<dependency>
+    <groupId>org.springframework.data</groupId>
+    <artifactId>spring-data-jpa</artifactId>
+    <version>3.1.1</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
+<dependency>
+    <groupId>org.hibernate.orm</groupId>
+    <artifactId>hibernate-core</artifactId>
+    <version>6.2.6.Final</version>
+</dependency>
+	<!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+<dependency>
+    <groupId>com.mysql</groupId>
+    <artifactId>mysql-connector-j</artifactId>
+    <version>8.0.33</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-web</artifactId>
+    <version>6.1.1</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
+<dependency>
+    <groupId>jakarta.servlet</groupId>
+    <artifactId>jakarta.servlet-api</artifactId>
+    <version>6.0.0</version>
+    <scope>provided</scope>
+</dependency>
 
   </dependencies>
 

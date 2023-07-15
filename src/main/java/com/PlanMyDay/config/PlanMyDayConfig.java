@@ -1,10 +1,11 @@
-package com.config;
+package com.PlanMyDay.config;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.thymeleaf.spring6.SpringTemplateEngine;
 import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.templatemode.TemplateMode;
@@ -12,12 +13,18 @@ import org.thymeleaf.spring6.view.ThymeleafViewResolver;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages="com.controllers")
-public class PlanMyDayConfig {
+@ComponentScan(basePackages="com.PlanMyDay.controllers")
+public class PlanMyDayConfig implements ApplicationContextAware {
+	private ApplicationContext applicationContext;
+	
+	public void setApplicationContext(ApplicationContext applicationContext) {
+		this.applicationContext = applicationContext;
+	}
 	
 	@Bean
 	public SpringResourceTemplateResolver templateResolver() {
 		SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
+		templateResolver.setApplicationContext(this.applicationContext);
 		templateResolver.setPrefix("/WEB-INF/views/");
 		templateResolver.setSuffix(".html");
 		
@@ -40,7 +47,7 @@ public class PlanMyDayConfig {
 		ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
 		viewResolver.setTemplateEngine(templateEngine());
 		viewResolver.setOrder(1);
-		viewResolver.setViewNames(new String[] {".html", ".xhtml"});
+		// viewResolver.setViewNames(new String[] {".html", ".xhtml"});
 		return viewResolver;
 	}
 	

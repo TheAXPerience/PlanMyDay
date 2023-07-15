@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Plan My Day - Registered</title>
+  </head>
+  <body>
+    <h1>Registration Complete!</h1>
+    <table th:if="${not #lists.isEmpty(user_list)}">
+      <thead>
+        <tr>
+          <td>Email</td>
+          <td>Username</td>
+          <td>Password</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="user : ${user_list}">
+          <td th:text="${user.getEmail()}">Email</td>
+          <td th:text="${user.getUsername()}">Username</td>
+          <td th:text="${user.getPassword()}">Password</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
