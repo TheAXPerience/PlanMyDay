@@ -5,6 +5,8 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.thymeleaf.spring6.SpringTemplateEngine;
 import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
@@ -13,7 +15,7 @@ import org.thymeleaf.spring6.view.ThymeleafViewResolver;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages="com.PlanMyDay.controllers")
+@ComponentScan(basePackages="com.PlanMyDay")
 public class PlanMyDayConfig implements ApplicationContextAware {
 	private ApplicationContext applicationContext;
 	

@@ -3,24 +3,31 @@ package com.PlanMyDay.models;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
-@Table(name="users")
-public class TestUser {
+@Table(name="user")
+public class Account {
 	@Id
-	@GeneratedValue
-	private long id;
-	@Column
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(unique=true)
 	private String email;
-	@Column
+	
+	@Column(unique=true)
 	private String username;
+	
+	@NotEmpty(message = "Password must not be empty.")
 	@Column
 	private String password;
 	
-	public TestUser() {}
-	public TestUser(long id, String email, String username, String password) {
+	public Account() {}
+	public Account(long id, String email, String username, String password) {
 		super();
 		this.id = id;
 		this.email = email;

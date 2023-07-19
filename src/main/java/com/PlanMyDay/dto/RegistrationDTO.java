@@ -1,8 +1,15 @@
 package com.PlanMyDay.dto;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+
 public class RegistrationDTO {
+	@NotEmpty(message = "Email must not be empty.")
+	@Email(message = "Please provide a valid Email.")
 	private String email;
+	@NotEmpty(message = "Username must not be empty.")
 	private String username;
+	@NotEmpty(message = "Password must not be empty.")
 	private String password;
 	
 	public RegistrationDTO() {}

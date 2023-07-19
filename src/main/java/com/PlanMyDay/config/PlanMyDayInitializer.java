@@ -17,6 +17,7 @@ public class PlanMyDayInitializer implements WebApplicationInitializer {
 		AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
 		context.register(PlanMyDayConfig.class);
 		context.register(PersistenceJPAConfig.class);
+		context.register(UserSecurityConfig.class);
 		
 		ServletRegistration.Dynamic servlet = servletContext.addServlet("dispatcher", new DispatcherServlet(context));
 		
